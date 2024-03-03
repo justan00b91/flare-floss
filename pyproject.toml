@@ -1,0 +1,61 @@
+[project]
+name = "flare-floss"
+dynamic = ["version"]
+authors = [
+    {name = "Willi Ballenthin", email = "william.ballenthin@mandiant.com"},
+    {name = "Mortiz Raabe", email = "moritz.raabe@mandiant.com"},
+]
+description="FLARE Obfuscated String Solver"
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+requires-python = ">= 3.8"
+#keywords = ["to-do", "not-decided", "Testing"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+]
+dependencies = [
+    "tabulate==0.9.0",
+    "vivisect==1.1.1",
+    "viv-utils[flirt]==0.7.9",
+    "pydantic==1.10.9",
+    "tqdm==4.65.0",
+    "networkx==3.1",
+    "halo==0.0.31",
+    "rich==13.4.2",
+    "pefile>=2022.5.30",
+    "binary2strings==0.1.13",
+]
+
+[project.optional-dependencies]
+extra = [
+    "pre-commit==3.5.0",
+    "pyyaml==6.0.1",
+    "pytest==8.0.0",
+    "pytest-sugar==0.9.4",
+    "pytest-instafail==0.5.0",
+    "pytest-cov==4.1.0",
+    "pycodestyle==2.11.1",
+    "black==23.12.1",
+    "isort==5.13.2",
+    "mypy==1.8.0",
+    "types-PyYAML==6.0.10",
+    "types-tabulate==0.9.0.20240106",
+]
+
+[project.urls]
+Repository = "https://www.github.com/mandiant/flare-floss"
+Issues = "https://github.com/mandiant/flare-floss/issues"
+
+
+[build-system]
+requires = ["pyinstaller >= 6.3.0", "setuptools >= 69.1.1", "build >= 1.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+floss = "floss.main:main"
